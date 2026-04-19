@@ -25,9 +25,9 @@ async function apiRequest(endpoint, options = {}) {
 // Maps frontend category names → backend measurementType values
 const categoryToMeasurementType = {
   temperature: 'TemperatureUnit',
-  length:      'LengthUnit',
-  weight:      'WeightUnit',
-  volume:      'VolumeUnit',
+  length: 'LengthUnit',
+  weight: 'WeightUnit',
+  volume: 'VolumeUnit',
 }
 
 // Builds a QuantityDTO the backend expects
@@ -66,9 +66,10 @@ export const authAPI = {
       body: JSON.stringify({ token, newPassword }),
     }),
 
+
   googleLogin: () => {
-    window.location.href = `/oauth2/authorization/google`
-  },
+    window.location.href = `https://quantitymeasurementapp-ty76.onrender.com/oauth2/authorization/google`
+  }
 }
 
 // Quantity APIs
