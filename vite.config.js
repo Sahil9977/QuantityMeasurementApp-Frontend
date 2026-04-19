@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+  base: '/',
   plugins: [react()],
   server: {
     proxy: {
@@ -9,7 +10,6 @@ export default defineConfig({
         target: 'http://localhost:8080',
         changeOrigin: true,
       },
-      // ✅ Only proxy the authorization start — NOT /oauth2/callback
       '/oauth2/authorization': {
         target: 'http://localhost:8080',
         changeOrigin: true,
@@ -22,4 +22,7 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    cssCodeSplit: false,
+  }
 })
